@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word Bank 1 — Vocabulary from Practice Test 1</title>
+<style>
+:root{
+  --ink:#10302B; --ink2:#17453D; --bg:#DCEAE3; --paper:#FFFFFF;
+  --hot:#E0A526; --hot-d:#B27F14; --hot-text:#231A05;
+  --ok:#1C7A56; --ok-bg:#E3F3EC; --no:#B23A2E; --no-bg:#FBE9E7;
+  --line:#C3D6CD; --muted:#5C7169; --text:#12241F;
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--bg); color:var(--text);
+  font-family:"Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,Helvetica,Arial,sans-serif;
+  font-size:16px; line-height:1.55}
+button{font-family:inherit; font-size:inherit; cursor:pointer}
+
+header{background:var(--ink); color:#EAF3EF; padding:14px 22px}
+.hwrap{max-width:1180px; margin:0 auto; display:flex; align-items:center; gap:16px; flex-wrap:wrap}
+.brand h1{margin:0; font-size:22px; letter-spacing:.3px}
+.brand p{margin:2px 0 0; font-size:13px; color:#9FC0B5}
+.hspace{flex:1}
+.chip{background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.22); border-radius:20px;
+  padding:5px 13px; font-size:13.5px; display:inline-flex; align-items:center; gap:7px}
+.chip b{color:var(--hot); font-size:15px; filter:brightness(1.35)}
+.hbtn{background:transparent; color:#EAF3EF; border:1px solid rgba(255,255,255,.3); border-radius:6px; padding:6px 12px; font-size:13px}
+.hbtn:hover{background:rgba(255,255,255,.12)}
+.hbtn.on{background:var(--hot); border-color:var(--hot); color:var(--hot-text); font-weight:600}
+
+nav.tabs{background:var(--ink2); padding:0 22px}
+.twrap{max-width:1180px; margin:0 auto; display:flex; gap:2px; flex-wrap:wrap}
+.tab{background:transparent; border:0; color:#A9C7BD; padding:11px 16px; font-size:14px; border-bottom:3px solid transparent}
+.tab.active{color:#fff; border-bottom-color:var(--hot); font-weight:600}
+
+main{max-width:1180px; margin:20px auto 60px; padding:0 22px; display:grid; grid-template-columns:250px 1fr; gap:20px}
+@media(max-width:880px){ main{grid-template-columns:1fr} }
+aside{background:var(--paper); border:1px solid var(--line); border-radius:10px; padding:14px; align-self:start}
+aside h3{margin:0 0 8px; font-size:13px; color:var(--muted); font-weight:600}
+.slist{display:flex; flex-direction:column; gap:5px}
+.sitem{display:flex; align-items:center; gap:9px; text-align:left; background:#F4F9F6; border:1px solid var(--line);
+  border-radius:7px; padding:8px 10px; font-size:13.5px; color:var(--text); line-height:1.3}
+.sitem:hover{border-color:var(--ink2)}
+.sitem.active{background:var(--ink); color:#fff; border-color:var(--ink)}
+.sitem .tag{flex:0 0 26px; height:22px; border-radius:5px; background:var(--ink2); color:#fff; display:grid; place-items:center; font-size:11.5px; font-weight:700}
+.sitem.active .tag{background:var(--hot); color:var(--hot-text)}
+.sitem .sc{margin-left:auto; font-size:11.5px; color:var(--muted); font-weight:700}
+.sitem.active .sc{color:#CFE2DA}
+.bar{height:7px; background:#E4EEE9; border-radius:4px; overflow:hidden; margin-top:12px}
+.bar span{display:block; height:100%; background:var(--hot); width:0}
+.barlbl{font-size:12px; color:var(--muted); margin-top:5px}
+
+section.panel{background:var(--paper); border:1px solid var(--line); border-radius:10px; overflow:hidden}
+.phead{padding:16px 22px; border-bottom:1px solid var(--line)}
+.phead .kicker{font-size:12.5px; color:var(--muted); margin:0}
+.phead h2{margin:2px 0 0; font-size:20px}
+.stages{display:flex; gap:6px; padding:12px 22px; border-bottom:1px solid var(--line); flex-wrap:wrap; background:#F7FBF9}
+.stg{border:1px solid var(--line); background:#fff; border-radius:20px; padding:6px 14px; font-size:13.5px; color:var(--muted)}
+.stg.active{background:var(--ink); border-color:var(--ink); color:#fff; font-weight:600}
+.stg.ok{border-color:var(--ok); color:var(--ok)}
+.stg.ok.active{background:var(--ok); border-color:var(--ok); color:#fff}
+.body{padding:20px 22px}
+.instr{background:#F2F8F5; border-left:4px solid var(--hot); padding:10px 14px; font-size:14.5px; margin:0 0 18px}
+
+/* study cards */
+.cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:12px}
+.wcard{border:1px solid var(--line); border-radius:9px; padding:12px 14px; background:#FCFBF7}
+.wcard .top{display:flex; align-items:baseline; gap:8px}
+.wcard .w{font-size:18px; font-weight:700; color:var(--ink)}
+.wcard .pos{font-size:12px; color:var(--muted); font-style:italic}
+.wcard .num{margin-left:auto; font-size:12px; color:var(--muted)}
+.wcard .def{font-size:14.5px; margin:5px 0 0}
+.wcard .ar{direction:rtl; text-align:right; font-size:17px; color:var(--ink2); background:#F2F8F5; border-radius:6px; padding:4px 9px; margin-top:7px; display:none}
+.wcard .ar.show{display:block}
+.wcard .ex{font-size:14px; color:#3A4B45; border-top:1px dashed var(--line); margin-top:8px; padding-top:7px; font-style:italic}
+.wcard .ex b{font-style:normal; color:var(--hot-d)}
+
+/* matching */
+.mgrid{display:grid; grid-template-columns:1fr 1.35fr; gap:14px; margin-bottom:14px}
+@media(max-width:700px){ .mgrid{grid-template-columns:1fr} }
+.mcol{display:flex; flex-direction:column; gap:7px}
+.mchip{border:1px solid var(--line); background:#fff; border-radius:8px; padding:9px 12px; text-align:left; font-size:15px}
+.mchip.word{font-weight:700; color:var(--ink)}
+.mchip.sel{border-color:var(--hot); background:#FCF3E2; box-shadow:0 0 0 2px rgba(194,65,123,.18)}
+.mchip.done{background:var(--ok-bg); border-color:var(--ok); color:var(--ok); cursor:default}
+.mchip.miss{background:var(--no-bg); border-color:var(--no)}
+.rounds{display:flex; gap:6px; margin-bottom:12px}
+.rbtn{border:1px solid var(--line); background:#fff; border-radius:6px; padding:4px 12px; font-size:13px; color:var(--muted)}
+.rbtn.active{background:var(--ink2); color:#fff; border-color:var(--ink2)}
+.rbtn.done{border-color:var(--ok); color:var(--ok)}
+
+/* question cards */
+.qcard{border:1px solid var(--line); border-radius:8px; padding:14px 16px; margin-bottom:14px}
+.qcard .qnum{font-size:12px; color:var(--muted); font-weight:700}
+.qcard .stem{font-size:16px; margin:3px 0 10px}
+.qcard .stem .blank{display:inline-block; min-width:96px; border-bottom:2px solid var(--hot); vertical-align:baseline}
+.qcard .arstem{direction:rtl; text-align:right; font-size:21px; color:var(--ink); background:#F2F8F5; border-radius:7px; padding:8px 12px; margin:4px 0 10px}
+.opt{display:block; width:100%; text-align:left; background:#fff; border:1px solid var(--line); border-radius:7px; padding:9px 13px; margin-bottom:6px; font-size:15px}
+.opt:hover:not(:disabled){border-color:var(--ink2); background:#F7FBF9}
+.opt:disabled{cursor:default}
+.opt .k{display:inline-block; width:22px; font-weight:700; color:var(--muted)}
+.opt.right{background:var(--ok-bg); border-color:var(--ok)}
+.opt.wrong{background:var(--no-bg); border-color:var(--no)}
+.fb{display:none; margin-top:8px; padding:10px 12px; border-radius:7px; font-size:14.5px}
+.fb.show{display:block}
+.fb.good{background:var(--ok-bg); border:1px solid var(--ok)}
+.fb.bad{background:var(--no-bg); border:1px solid var(--no)}
+.fb b{display:block; margin-bottom:2px}
+.fb .arline{direction:rtl; text-align:right; font-size:17px; margin-top:5px}
+
+.navrow{display:flex; gap:10px; align-items:center; padding:16px 22px; border-top:1px solid var(--line); background:#F7FBF9}
+.btn{background:var(--ink); color:#fff; border:0; border-radius:7px; padding:10px 18px; font-size:15px; font-weight:600}
+.btn:disabled{opacity:.4}
+.btn.ghost{background:#fff; color:var(--ink); border:1px solid var(--ink)}
+.btn.hot{background:var(--hot); color:var(--hot-text)}
+.navrow .sp{flex:1}
+.hint{font-size:13.5px; color:var(--muted)}
+
+.grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+@media(max-width:760px){ .grid2{grid-template-columns:1fr} }
+.stat{background:#F7FBF9; border:1px solid var(--line); border-radius:9px; padding:14px}
+.stat .n{font-size:30px; font-weight:700; color:var(--ink)}
+.stat .l{font-size:13px; color:var(--muted)}
+table.res{width:100%; border-collapse:collapse; font-size:14px; margin-top:8px}
+table.res th,table.res td{border:1px solid var(--line); padding:6px 9px; text-align:left}
+table.res th{background:#F2F8F5}
+.badge{display:inline-flex; align-items:center; gap:8px; border:1px solid var(--line); border-radius:20px; padding:7px 14px; margin:0 8px 8px 0; font-size:14px; background:#F4F9F6; color:var(--muted)}
+.badge.won{background:var(--ink); color:#fff; border-color:var(--ink)}
+.badge.won .ic{color:var(--hot); filter:brightness(1.4)}
+#cert{display:none; background:#FCFBF7; border:3px double var(--ink); border-radius:8px; padding:26px; text-align:center; margin-top:18px}
+#cert.show{display:block}
+#cert h3{font-family:Georgia,serif; font-size:25px; margin:0 0 4px; color:var(--ink)}
+#cert input{font-family:Georgia,serif; font-size:20px; text-align:center; border:0; border-bottom:1.5px solid var(--ink); background:transparent; padding:4px; width:280px}
+.sig{margin-top:18px; font-size:13.5px; color:var(--muted)}
+footer{text-align:center; padding:18px; font-size:13px; color:var(--muted)}
+.conf{position:fixed; width:9px; height:14px; top:-20px; z-index:99; pointer-events:none}
+@keyframes fall{to{transform:translateY(105vh) rotate(720deg); opacity:.2}}
+@media print{ header,nav,aside,.navrow,.stages{display:none!important} main{display:block}
+  body.certonly .phead, body.certonly .grid2, body.certonly table.res, body.certonly h3,
+  body.certonly .badge, body.certonly .hint, body.certonly #printCert{display:none!important}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hwrap">
+    <div class="brand">
+      <h1>Word Bank 1</h1>
+      <p>Practice Test 1 · Education and Environment · thirty words with Arabic</p>
+    </div>
+    <div class="hspace"></div>
+    <span class="chip">Points <b id="pts">0</b></span>
+    <span class="chip">Words mastered <b id="wdone">0/30</b></span>
+    <button class="hbtn on" id="arBtn">العربية ON</button>
+    <button class="hbtn" id="saveBtn">Save</button>
+    <button class="hbtn" id="loadBtn">Load</button>
+    <input type="file" id="fileIn" accept="application/json" hidden>
+  </div>
+</header>
+
+<nav class="tabs"><div class="twrap">
+  <button class="tab active" data-view="0">Both word lists</button>
+  <button class="tab" data-view="1">My progress</button>
+  <button class="tab" data-view="2">How to use this</button>
+</div></nav>
+
+<main>
+  <aside id="side"></aside>
+  <section class="panel" id="panel"></section>
+</main>
+
+<footer>Word Bank 1 · vocabulary companion to IELTS Reading Practice Test 1 · Designed by: Nazila Motahari</footer>
+
+<script>
+const SETS = [
+{
+ id:"1a", test:"Practice Test 1", topic:"Education", title:"Rethinking the School Week",
+ words:[
+  {w:"timetable", p:"noun", d:"a plan showing the times at which lessons or events happen", a:"جدول زمني / جدول الحصص", e:"The school changed its timetable so that Friday is now a day off."},
+  {w:"district", p:"noun", d:"an area of a country or city with its own local administration", a:"منطقة إدارية", e:"Each school district decides its own opening hours."},
+  {w:"budget", p:"noun", d:"the money available to spend on something over a period of time", a:"ميزانية", e:"Salaries take up the largest part of any school budget."},
+  {w:"salary", p:"noun", d:"the fixed amount a person is paid each month for their work", a:"راتب", e:"A teacher's salary does not fall when the school closes on Friday."},
+  {w:"contract", p:"noun", d:"a written agreement about work, pay and conditions", a:"عقد عمل", e:"Teachers are still paid for a full contract under the new system."},
+  {w:"qualified", p:"adjective", d:"having the training or certificate needed for a job", a:"مؤهل", e:"Rural schools find it hard to attract qualified teachers."},
+  {w:"application", p:"noun", d:"a formal request for a job or a place somewhere", a:"طلب توظيف / تقديم", e:"She sent an application for a teaching post in Oregon."},
+  {w:"principal", p:"noun", d:"the person in charge of a school", a:"مدير المدرسة", e:"The principal reported that fewer teachers left in the middle of the year."},
+  {w:"supporter", p:"noun", d:"someone who agrees with an idea and argues for it", a:"مؤيد", e:"One supporter of the four-day week predicted a saving of ten per cent."},
+  {w:"analysis", p:"noun", d:"a careful examination of information in order to understand it", a:"تحليل", e:"A larger analysis examined test data from twelve states."},
+  {w:"conclude", p:"verb", d:"to decide something after considering the evidence", a:"يستنتج", e:"The researchers conclude that younger pupils are the most affected."},
+  {w:"slightly", p:"adverb", d:"by a small amount; a little", a:"قليلًا / بشكل طفيف", e:"Primary pupils fell slightly behind pupils in five-day schools."},
+  {w:"concentration", p:"noun", d:"the ability to keep your attention on one thing", a:"التركيز", e:"Young children lose concentration in the final lesson of a long day."},
+  {w:"charity", p:"noun", d:"an organisation that helps people without making a profit", a:"جمعية خيرية", e:"A local charity runs free activities for children on Fridays."},
+  {w:"childcare", p:"noun", d:"the care of young children while their parents are at work", a:"رعاية الأطفال", e:"Parents must pay for childcare on the fifth day of the week."}
+ ]
+},
+{
+ id:"1b", test:"Practice Test 1", topic:"Environment", title:"Cooling the City",
+ words:[
+  {w:"urban", p:"adjective", d:"connected with a town or a city", a:"حضري / مدني", e:"The urban heat island effect makes city centres warmer than the countryside."},
+  {w:"material", p:"noun", d:"the substance that something is made from", a:"مادة (بناء)", e:"Concrete is the material that stores most heat in a city."},
+  {w:"release", p:"verb", d:"to let something out, or allow it to escape", a:"يُطلِق / يُحرِّر", e:"Roads release heat slowly through the night."},
+  {w:"discomfort", p:"noun", d:"a feeling of being slightly uncomfortable", a:"انزعاج / عدم راحة", e:"Hot nights cause more than discomfort; they can be dangerous."},
+  {w:"heatwave", p:"noun", d:"a period of unusually hot weather", a:"موجة حر", e:"Most deaths in the 2003 heatwave happened in cities."},
+  {w:"occur", p:"verb", d:"to happen, especially without being planned", a:"يحدث", e:"Most heat-related deaths occur in urban areas."},
+  {w:"demand", p:"noun", d:"the amount of something that people want or need", a:"الطلب", e:"Demand for electricity rises when millions of air conditioners are switched on."},
+  {w:"evaporation", p:"noun", d:"the process of a liquid turning into vapour", a:"التبخّر", e:"Fountains cool the surrounding air through evaporation."},
+  {w:"insulate", p:"verb", d:"to cover something so that heat cannot pass through it", a:"يعزل", e:"Green roofs insulate the building beneath them."},
+  {w:"reflective", p:"adjective", d:"sending light back instead of absorbing it", a:"عاكس للضوء", e:"Pale reflective paint keeps a roof much cooler than a dark surface."},
+  {w:"region", p:"noun", d:"a large area of a country or of the world", a:"منطقة", e:"In a dry region there may not be enough water for fountains."},
+  {w:"planner", p:"noun", d:"someone who decides how a city should be built and arranged", a:"مخطط مدن", e:"A city planner now has to think about how air moves between buildings."},
+  {w:"neighbourhood", p:"noun", d:"a small area of a city where people live", a:"حيّ سكني", e:"The poorest neighbourhood usually has the fewest trees."},
+  {w:"wealthy", p:"adjective", d:"having a great deal of money", a:"ثري / غني", e:"Cooling projects often begin in wealthy central districts."},
+  {w:"significant", p:"adjective", d:"large or important enough to be noticed", a:"كبير / ذو أهمية", e:"Two degrees of cooling could save a significant number of lives."}
+ ]
+}
+];
+
+const APP_ID = "word-bank-1";
+const STAGES = ["Study the words","Match the meaning","Complete the sentence","Arabic recall"];
+let view = 0, sIdx = 0, stage = 0, round = 0, results = null, arabic = true;
+let sel = null;                       // selected word chip in the matching activity
+const st = { ans:{}, studied:{} };
+
+const $ = s => document.querySelector(s);
+const TOTAL_WORDS = SETS.reduce((n,s)=>n+s.words.length,0);
+const PER = { m:15, g:15, a:15 };
+const key = (sid,t,i) => sid+"-"+t+i;
+
+/* deterministic shuffle so the screen does not jump on every re-render */
+function seeded(str){ let h=2166136261; for(const c of str){ h^=c.charCodeAt(0); h=Math.imul(h,16777619);} return ()=>{ h=Math.imul(h^(h>>>15),2246822507); h^=h>>>13; return ((h>>>0)%100000)/100000; }; }
+function shuffle(arr, seedStr){ const r=seeded(seedStr), a=arr.slice();
+  for(let i=a.length-1;i>0;i--){ const j=Math.floor(r()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+/* Words that are close enough in meaning to fit the same gap are never offered
+   against each other, so no question has two defensible answers. */
+const NEVER = [["self-control","patience"],["reset","restore"],["reset","strengthen"],
+               ["crane","trailer"],["conclude","conclusion"],["material","labour"],
+               ["trailer","cargo"],["behaviour","decision"],
+               ["host","guest"],["channel","shaft"],["company","community"],["tower","roof"],
+               ["presence","company"],["shaft","chimney"],["chimney","tower"]];
+function confusable(a,b){ return NEVER.some(p=>(p[0]===a&&p[1]===b)||(p[1]===a&&p[0]===b)); }
+function distractors(set, correctIdx, n, seedStr){
+  const cw = set.words[correctIdx].w;
+  const others = set.words.map((_,i)=>i).filter(i=>i!==correctIdx && !confusable(cw, set.words[i].w));
+  return shuffle(others, seedStr).slice(0,n);
+}
+
+function itemKeys(set){
+  const ks=[];
+  set.words.forEach((_,i)=>{ ks.push(key(set.id,"m",i)); ks.push(key(set.id,"g",i)); ks.push(key(set.id,"a",i)); });
+  return ks;
+}
+function setStats(set){
+  let got=0, tot=0, pts=0, ft=0;
+  itemKeys(set).forEach(k=>{ tot++; const a=st.ans[k];
+    if(a&&a.ok){ got++; pts += a.tries===1?10:(a.tries===2?6:3); if(a.tries===1) ft++; } });
+  return {got,tot,pts,ft,pct:Math.round(got/tot*100)};
+}
+/* a word counts as mastered when all three of its exercises are right */
+function wordMastered(set,i){ return ["m","g","a"].every(t=>{ const a=st.ans[key(set.id,t,i)]; return a&&a.ok; }); }
+function mastered(){ let n=0; SETS.forEach(s=>s.words.forEach((_,i)=>{ if(wordMastered(s,i)) n++; })); return n; }
+function points(){ let t=0; for(const k in st.ans){ const a=st.ans[k]; if(a.ok) t += a.tries===1?10:(a.tries===2?6:3); } return t; }
+function totalItems(){ return TOTAL_WORDS*3; }
+function answered(){ let n=0; for(const k in st.ans) if(st.ans[k].ok) n++; return n; }
+function stageDone(set,s){
+  if(s===0) return !!st.studied[set.id];
+  const t = s===1?"m": s===2?"g":"a";
+  return set.words.every((_,i)=>{ const a=st.ans[key(set.id,t,i)]; return a&&a.ok; });
+}
+function setDone(set){ return [1,2,3].every(s=>stageDone(set,s)); }
+
+/* ================= RENDER ================= */
+function renderHeader(){
+  $("#pts").textContent = points();
+  $("#wdone").textContent = mastered()+"/"+TOTAL_WORDS;
+  document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active", +t.dataset.view===view));
+}
+function renderSide(){
+  const side=$("#side");
+  if(view>0){ const pct=Math.round(answered()/totalItems()*100);
+    side.innerHTML="<h3>Overall</h3><p style='margin:0;font-size:15px;font-weight:700'>"+answered()+" of "+totalItems()+" exercises correct</p>"+
+      "<div class='bar'><span style='width:"+pct+"%'></span></div><div class='barlbl'>"+pct+"%</div>"; return; }
+  let h="<h3>Choose a reading</h3><div class='slist'>";
+  SETS.forEach((s,i)=>{
+    const t=setStats(s);
+    h+="<button class='sitem"+(i===sIdx?" active":"")+"' data-s='"+i+"'><span class='tag'>"+s.id.toUpperCase()+"</span>"+
+       "<span>"+s.title+"</span><span class='sc'>"+(setDone(s)?"✓":t.pct+"%")+"</span></button>";
+  });
+  const done=SETS.filter(setDone).length;
+  h+="</div><div class='bar'><span style='width:"+Math.round(done/SETS.length*100)+"%'></span></div>"+
+     "<div class='barlbl'>"+done+" of "+SETS.length+" word lists finished</div>"+
+     "<button class='btn ghost' id='resBtn' style='width:100%;margin-top:12px;font-size:14px'>My results for this list</button>";
+  side.innerHTML=h;
+  side.querySelectorAll(".sitem").forEach(b=>b.onclick=()=>{ sIdx=+b.dataset.s; stage=0; round=0; sel=null; results=null; render(); });
+  const rb=side.querySelector("#resBtn"); if(rb) rb.onclick=()=>{ results=sIdx; render(); };
+}
+
+function optHTML(id,opts,saved,correctIdx){
+  const L=["A","B","C","D"]; const reveal = saved && (saved.ok || saved.tries>=2);
+  return opts.map((o,i)=>{
+    let c="opt";
+    if(saved && saved.picked!==undefined){
+      if(reveal && i===correctIdx) c+=" right";
+      else if(i===saved.picked && !saved.ok) c+=" wrong";
+    }
+    return "<button class='"+c+"' data-q='"+id+"' data-i='"+i+"'"+((saved&&saved.ok)?" disabled":"")+"><span class='k'>"+L[i]+"</span>"+o+"</button>";
+  }).join("");
+}
+
+function renderPanel(){
+  const panel=$("#panel");
+  if(view===1){ panel.innerHTML=progressHTML(); wireProgress(); return; }
+  if(view===2){ panel.innerHTML=helpHTML(); return; }
+  if(results!==null){ panel.innerHTML=resultsHTML(SETS[results]); wireResults(); return; }
+
+  const set=SETS[sIdx];
+  let h="<div class='phead'><p class='kicker'>"+set.test+" · "+set.topic+" · 15 words</p><h2>"+set.title+"</h2></div>";
+  h+="<div class='stages'>"+STAGES.map((s,i)=>"<button class='stg"+(i===stage?" active":"")+(stageDone(set,i)?" ok":"")+"' data-s='"+i+"'>"+(i+1)+". "+s+"</button>").join("")+"</div>";
+  h+="<div class='body'>";
+
+  if(stage===0){
+    h+="<p class='instr'>Read each word with its meaning and its example sentence. Say the word aloud, then cover the meaning and try to remember it. The Arabic is there to check yourself, not to translate from — turn it off with the button in the top bar when you are ready.</p>";
+    h+="<div class='cards'>";
+    set.words.forEach((x,i)=>{
+      const ex=x.e.replace(new RegExp("("+x.w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")","i"),"<b>$1</b>");
+      h+="<div class='wcard'><div class='top'><span class='w'>"+x.w+"</span><span class='pos'>"+x.p+"</span><span class='num'>"+(i+1)+"/15</span></div>"+
+         "<p class='def'>"+x.d+"</p>"+
+         "<div class='ar"+(arabic?" show":"")+"'>"+x.a+"</div>"+
+         "<p class='ex'>"+ex+"</p></div>";
+    });
+    h+="</div><button class='btn hot' id='studied' style='margin-top:16px'>"+(st.studied[set.id]?"Studied ✓ — study again":"I have studied these fifteen words")+"</button>";
+  }
+
+  if(stage===1){
+    h+="<p class='instr'>Click an English word, then click its meaning. Five pairs at a time. A pair that matches locks in green.</p>";
+    h+="<div class='rounds'>"+[0,1,2].map(r=>{
+        const done=set.words.slice(r*5,r*5+5).every((_,j)=>{const a=st.ans[key(set.id,"m",r*5+j)]; return a&&a.ok;});
+        return "<button class='rbtn"+(r===round?" active":"")+(done?" done":"")+"' data-r='"+r+"'>Round "+(r+1)+(done?" ✓":"")+"</button>";
+      }).join("")+"</div>";
+    const idxs=[0,1,2,3,4].map(j=>round*5+j);
+    const left=shuffle(idxs, set.id+"L"+round), right=shuffle(idxs, set.id+"R"+round);
+    h+="<div class='mgrid'><div class='mcol'>"+left.map(i=>{
+        const a=st.ans[key(set.id,"m",i)]; const done=a&&a.ok;
+        return "<button class='mchip word"+(done?" done":"")+(sel===i?" sel":"")+"' data-w='"+i+"'"+(done?" disabled":"")+">"+set.words[i].w+"</button>";
+      }).join("")+"</div><div class='mcol'>"+right.map(i=>{
+        const a=st.ans[key(set.id,"m",i)]; const done=a&&a.ok;
+        return "<button class='mchip"+(done?" done":"")+"' data-d='"+i+"'"+(done?" disabled":"")+">"+set.words[i].d+"</button>";
+      }).join("")+"</div></div>";
+    const left5=idxs.filter(i=>{const a=st.ans[key(set.id,"m",i)]; return !(a&&a.ok);}).length;
+    h+="<p class='hint'>"+(left5? left5+" pair"+(left5>1?"s":"")+" left in this round." : "Round complete — move to the next round.")+"</p>";
+  }
+
+  if(stage===2){
+    h+="<p class='instr'>Choose the word that fits the gap. The sentence gives you the clue — read the whole sentence before you choose.</p>";
+    set.words.forEach((x,i)=>{
+      const id=key(set.id,"g",i), a=st.ans[id];
+      const stem=x.e.replace(new RegExp(x.w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"i"),"<span class='blank'></span>");
+      const ds=distractors(set,i,3,set.id+"g"+i);
+      const order=shuffle([i,...ds], set.id+"go"+i);
+      const correct=order.indexOf(i);
+      h+="<div class='qcard' id='card-"+id+"'><div class='qnum'>Sentence "+(i+1)+" of 15</div><div class='stem'>"+stem+"</div>"+
+         optHTML(id, order.map(j=>SETS[sIdx].words[j].w), a?{picked:a.picked,ok:a.ok,tries:a.tries}:null, correct)+
+         "<div class='fb "+(a?(a.ok?"good show":"bad show"):"")+"'>"+
+           (a&&a.ok? "<b>Correct</b>"+x.d+(arabic?"<div class='arline'>"+x.a+"</div>":"")
+            : a&&a.tries>=2? "<b>The answer is <i>"+x.w+"</i></b>"+x.d
+            : a? "<b>Not that one</b>Read the sentence again — which meaning would fit here?" : "")+"</div></div>";
+    });
+  }
+
+  if(stage===3){
+    h+="<p class='instr'>Which English word matches the Arabic? This is the hardest direction, and the one that shows whether a word is really yours.</p>";
+    set.words.forEach((x,i)=>{
+      const id=key(set.id,"a",i), a=st.ans[id];
+      const ds=distractors(set,i,3,set.id+"a"+i);
+      const order=shuffle([i,...ds], set.id+"ao"+i);
+      const correct=order.indexOf(i);
+      h+="<div class='qcard' id='card-"+id+"'><div class='qnum'>Word "+(i+1)+" of 15</div>"+
+         "<div class='arstem'>"+x.a+"</div>"+
+         optHTML(id, order.map(j=>SETS[sIdx].words[j].w), a?{picked:a.picked,ok:a.ok,tries:a.tries}:null, correct)+
+         "<div class='fb "+(a?(a.ok?"good show":"bad show"):"")+"'>"+
+           (a&&a.ok? "<b>Correct — "+x.w+"</b>"+x.d
+            : a&&a.tries>=2? "<b>The answer is <i>"+x.w+"</i></b>"+x.d
+            : a? "<b>Not that one</b>Try again." : "")+"</div></div>";
+    });
+  }
+
+  h+="</div>";
+  const last = stage===STAGES.length-1;
+  h+="<div class='navrow'><button class='btn ghost' id='back'"+((stage===0&&sIdx===0)?" disabled":"")+">← Back</button>"+
+     "<span class='hint'>Step "+(stage+1)+" of 4 · "+set.title+"</span><span class='sp'></span>"+
+     (last? "<button class='btn hot' id='fin'>See my results for this list</button>" : "<button class='btn' id='next'>Next →</button>")+"</div>";
+  panel.innerHTML=h;
+  wirePanel(set);
+}
+
+function wirePanel(set){
+  document.querySelectorAll(".stg").forEach(b=>b.onclick=()=>{ stage=+b.dataset.s; sel=null; render(); });
+  const sb=$("#studied"); if(sb) sb.onclick=()=>{ st.studied[set.id]=true; stage=1; render(); window.scrollTo({top:0,behavior:"smooth"}); };
+  document.querySelectorAll(".rbtn").forEach(b=>b.onclick=()=>{ round=+b.dataset.r; sel=null; render(); });
+  document.querySelectorAll("[data-w]").forEach(b=>b.onclick=()=>{ sel=(sel===+b.dataset.w)?null:+b.dataset.w; render(); });
+  document.querySelectorAll("[data-d]").forEach(b=>b.onclick=()=>{
+    if(sel===null) return;
+    const want=+b.dataset.d, id=key(set.id,"m",sel);
+    const prev=st.ans[id]?st.ans[id].tries:0, ok=(want===sel);
+    st.ans[id]={ok,tries:prev+1,picked:want};
+    if(ok){ sel=null; burst(5); } 
+    render();
+  });
+  document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>onAnswer(b,set));
+  const bk=$("#back"); if(bk) bk.onclick=()=>{ if(stage>0) stage--; else { sIdx--; stage=STAGES.length-1; } sel=null; render(); window.scrollTo({top:0,behavior:"smooth"}); };
+  const nx=$("#next"); if(nx) nx.onclick=()=>{ stage++; sel=null; render(); window.scrollTo({top:0,behavior:"smooth"}); };
+  const fn=$("#fin"); if(fn) fn.onclick=()=>{ results=sIdx; render(); window.scrollTo({top:0,behavior:"smooth"}); };
+}
+
+function onAnswer(btn,set){
+  const id=btn.dataset.q, pick=+btn.dataset.i;
+  if(st.ans[id]&&st.ans[id].ok) return;
+  const t=id.split("-")[1][0], i=+id.split("-")[1].slice(1);
+  const ds=distractors(set,i,3,set.id+t+i);
+  const order=shuffle([i,...ds], set.id+t+"o"+i);
+  const ok = order[pick]===i;
+  const prev=st.ans[id]?st.ans[id].tries:0;
+  st.ans[id]={ok,tries:prev+1,picked:pick};
+  if(ok) burst(5);
+  render();
+  const c=document.getElementById("card-"+id); if(c) c.scrollIntoView({block:"center",behavior:"smooth"});
+}
+
+/* ---------- results for one list ---------- */
+function resultsHTML(set){
+  const s=setStats(set), done=setDone(set);
+  const weak=set.words.map((x,i)=>({x,i,tries:["m","g","a"].reduce((n,t)=>{const a=st.ans[key(set.id,t,i)]; return n+(a?Math.max(0,a.tries-1):0);},0)}))
+               .filter(o=>o.tries>0).sort((a,b)=>b.tries-a.tries).slice(0,6);
+  let h="<div class='phead'><p class='kicker'>"+set.test+" · "+set.topic+"</p><h2>"+set.title+" — my results</h2></div><div class='body'>";
+  if(!done) h+="<p class='instr'><b>This list is not finished yet.</b> These results cover the exercises you have completed so far. Choose any step above to carry on.</p>";
+  h+="<div class='grid2'>"+
+     "<div class='stat'><div class='n'>"+s.got+" / "+s.tot+"</div><div class='l'>exercises correct ("+s.pct+"%)</div><div class='bar'><span style='width:"+s.pct+"%'></span></div></div>"+
+     "<div class='stat'><div class='n'>"+set.words.filter((_,i)=>wordMastered(set,i)).length+" / 15</div><div class='l'>words mastered — right in all three exercises</div></div>"+
+     "<div class='stat'><div class='n'>"+s.pts+"</div><div class='l'>points from this list</div></div>"+
+     "<div class='stat'><div class='n'>"+s.ft+"</div><div class='l'>correct on the first attempt</div></div></div>";
+  h+="<h3 style='margin:22px 0 8px'>Words to look at again</h3>";
+  h+= weak.length
+    ? "<table class='res'><tr><th>Word</th><th>Meaning</th><th>العربية</th><th>Extra attempts</th></tr>"+
+      weak.map(o=>"<tr><td><b>"+o.x.w+"</b></td><td>"+o.x.d+"</td><td style='direction:rtl'>"+o.x.a+"</td><td>"+o.tries+"</td></tr>").join("")+"</table>"
+    : "<div class='fb good show'><b>Nothing to review</b>Every word in this list was right first time. Try the other reading, and turn the Arabic off before you start.</div>";
+  if(done && s.pct>=80){
+    h+="<div id='cert' class='show'><h3>Word Bank · "+set.title+"</h3><p style='margin:0;font-size:14px;color:#5C7169'>This certifies that</p>"+
+       "<div><input id='nameIn' placeholder='write your name'></div>"+
+       "<p style='max-width:520px;margin:6px auto 0;font-size:15px'>has learned fifteen words from this reading passage, matching each to its meaning, using it in a sentence and recognising it from Arabic — scoring "+s.pct+"%.</p>"+
+       "<div class='sig'>Word Bank · Designed by: Nazila Motahari</div>"+
+       "<button class='btn' style='margin-top:16px' id='printCert'>Print this certificate</button></div>";
+  } else if(done){
+    h+="<p class='hint' style='margin-top:14px'>Reach 80% on this list to unlock its certificate. You are at "+s.pct+"%.</p>";
+  }
+  h+="<div class='fb good show' style='margin-top:18px'><b>Stopping here?</b>Press <b>Save</b> in the top bar to download your progress, and <b>Load</b> next time to carry on. Nothing is kept in the browser.</div></div>";
+  h+="<div class='navrow'><button class='btn ghost' id='resBack'>← Back to the exercises</button><button class='btn ghost' id='resSave'>Save my progress</button><span class='sp'></span>"+
+     (sIdx<SETS.length-1? "<button class='btn hot' id='resNext'>Next word list →</button>" : "<button class='btn hot' id='resAll'>See both lists together</button>")+"</div>";
+  return h;
+}
+function wireResults(){
+  const b=$("#printCert"); if(b) b.onclick=()=>{ document.body.classList.add("certonly"); window.print(); setTimeout(()=>document.body.classList.remove("certonly"),600); };
+  const bk=$("#resBack"); if(bk) bk.onclick=()=>{ results=null; render(); };
+  const sv=$("#resSave"); if(sv) sv.onclick=()=>$("#saveBtn").onclick();
+  const nx=$("#resNext"); if(nx) nx.onclick=()=>{ sIdx=Math.min(SETS.length-1,sIdx+1); results=null; stage=0; round=0; render(); window.scrollTo({top:0,behavior:"smooth"}); };
+  const al=$("#resAll"); if(al) al.onclick=()=>{ view=1; results=null; render(); window.scrollTo({top:0,behavior:"smooth"}); };
+}
+
+/* ---------- overall ---------- */
+function progressHTML(){
+  const tot=totalItems(), got=answered(), pct=Math.round(got/tot*100);
+  const badges=[
+    {t:"First list finished", won: SETS.some(setDone)},
+    {t:"Half the list — 15 words mastered", won: mastered()>=15},
+    {t:"All 30 words mastered", won: mastered()===TOTAL_WORDS},
+    {t:"Arabic recall — 10 right first time", won: firstTryOf("a")>=10},
+    {t:"80% club", won: pct>=80}
+  ];
+  let h="<div class='phead'><p class='kicker'>Both readings in Practice Test 1</p><h2>My progress</h2></div><div class='body'>";
+  h+="<div class='grid2'>"+
+     "<div class='stat'><div class='n'>"+mastered()+" / "+TOTAL_WORDS+"</div><div class='l'>words mastered — correct in matching, sentence and Arabic</div><div class='bar'><span style='width:"+Math.round(mastered()/TOTAL_WORDS*100)+"%'></span></div></div>"+
+     "<div class='stat'><div class='n'>"+got+" / "+tot+"</div><div class='l'>exercises correct ("+pct+"%)</div></div>"+
+     "<div class='stat'><div class='n'>"+points()+"</div><div class='l'>points — 10 first try, 6 second, 3 after that</div></div>"+
+     "<div class='stat'><div class='n'>"+SETS.filter(setDone).length+" / "+SETS.length+"</div><div class='l'>word lists finished</div></div></div>";
+  h+="<h3 style='margin:22px 0 8px'>By reading</h3><table class='res'><tr><th>Reading</th><th>Test</th><th>Words mastered</th><th>Score</th><th></th></tr>";
+  SETS.forEach((s,i)=>{ const t=setStats(s);
+    h+="<tr><td>"+s.title+"</td><td>"+s.test.replace("Practice Test","Test")+"</td><td>"+s.words.filter((_,j)=>wordMastered(s,j)).length+" / 15</td><td>"+t.pct+"%</td>"+
+       "<td><button class='rbtn' data-go='"+i+"'>open</button></td></tr>"; });
+  h+="</table><h3 style='margin:22px 0 8px'>Badges</h3>"+badges.map(b=>"<span class='badge"+(b.won?" won":"")+"'><span class='ic'>"+(b.won?"★":"☆")+"</span>"+b.t+"</span>").join("");
+  if(pct>=80){
+    h+="<div id='cert' class='show'><h3>Word Bank · Certificate</h3><p style='margin:0;font-size:14px;color:#5C7169'>This certifies that</p>"+
+       "<div><input id='nameIn' placeholder='write your name'></div>"+
+       "<p style='max-width:540px;margin:6px auto 0;font-size:15px'>has worked through both vocabulary lists from Practice Test 1 — "+TOTAL_WORDS+" words in three exercises each — scoring "+pct+"%.</p>"+
+       "<div class='sig'>Word Bank · Designed by: Nazila Motahari</div>"+
+       "<button class='btn' style='margin-top:16px' id='printCert'>Print this certificate</button></div>";
+  } else h+="<p class='hint' style='margin-top:16px'>The full certificate needs 80% across both lists. You are at "+pct+"%. Each list also has its own certificate.</p>";
+  h+="</div>";
+  return h;
+}
+function firstTryOf(t){ let n=0; for(const k in st.ans){ const p=k.split("-")[1]; if(p&&p[0]===t&&st.ans[k].ok&&st.ans[k].tries===1) n++; } return n; }
+function wireProgress(){
+  const b=$("#printCert"); if(b) b.onclick=()=>{ document.body.classList.add("certonly"); window.print(); setTimeout(()=>document.body.classList.remove("certonly"),600); };
+  document.querySelectorAll("[data-go]").forEach(x=>x.onclick=()=>{ view=0; sIdx=+x.dataset.go; stage=0; round=0; results=null; render(); window.scrollTo({top:0,behavior:"smooth"}); });
+}
+
+function helpHTML(){
+  return "<div class='phead'><p class='kicker'>For students and teachers</p><h2>How to use this</h2></div><div class='body'>"+
+  "<p class='instr'>Thirty words: fifteen from each of the two readings in Practice Test 1. None of them repeats a word already taught in <i>Dissecting Readings</i>, so the two sets of material fit together rather than overlapping.</p>"+
+  "<table class='res'><tr><th>Step</th><th>What you do</th><th>Why it is in this order</th></tr>"+
+  "<tr><td>1. Study the words</td><td>Read each word, its meaning and an example sentence.</td><td>You meet the word in a sentence, not on its own. The Arabic is for checking, not for translating from.</td></tr>"+
+  "<tr><td>2. Match the meaning</td><td>Pair each word with its definition, five at a time.</td><td>Recognition comes first, and it is the easiest step — if this is hard, go back to step 1.</td></tr>"+
+  "<tr><td>3. Complete the sentence</td><td>Choose the word that fits the gap.</td><td>Now the word has to fit a context and a grammar slot, which is what the reading test really asks.</td></tr>"+
+  "<tr><td>4. Arabic recall</td><td>See the Arabic, choose the English word.</td><td>Producing the English is much harder than recognising it. A word you can retrieve from Arabic is a word you own.</td></tr>"+
+  "</table>"+
+  "<h3 style='margin:22px 0 6px'>For the teacher</h3>"+
+  "<p style='font-size:15px'>Each list takes about twenty minutes, so the whole app is one lesson. Step 2 works well in pairs, with one student reading the definition aloud while the other finds the word. For step 4, turn the Arabic off in the top bar first, so the study cards no longer show it — otherwise students can scroll back and copy.</p>"+
+  "<p style='font-size:15px'>The results page for each list shows the words that needed more than one attempt, with their Arabic. That table is the vocabulary test for the following lesson.</p>"+
+  "<p style='font-size:15px'>A word only counts as <b>mastered</b> when it is right in all three exercises, so the counter in the top bar is a real measure rather than a click count. Progress saves to a file with <b>Save</b> and reopens with <b>Load</b>.</p>"+
+  "</div>";
+}
+
+function burst(n){
+  const cols=["#E0A526","#10302B","#17453D","#B27F14","#7FB8A0"];
+  for(let i=0;i<n;i++){ const d=document.createElement("div"); d.className="conf";
+    d.style.left=Math.random()*100+"vw"; d.style.background=cols[i%cols.length];
+    d.style.animation="fall "+(1.6+Math.random()*1.4)+"s linear forwards";
+    document.body.appendChild(d); setTimeout(()=>d.remove(),3200); }
+}
+
+$("#saveBtn").onclick=()=>{
+  const blob=new Blob([JSON.stringify({app:APP_ID,v:1,st,arabic},null,1)],{type:"application/json"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=APP_ID+"-progress.json"; a.click();
+};
+$("#loadBtn").onclick=()=>$("#fileIn").click();
+$("#fileIn").onchange=e=>{
+  const f=e.target.files[0]; if(!f) return;
+  const r=new FileReader();
+  r.onload=()=>{ try{
+      const o=JSON.parse(r.result);
+      if(o.app && o.app!==APP_ID){ alert("That progress file belongs to a different lesson, so it cannot be opened here. Choose the file saved by Word Bank."); return; }
+      if(o.st){ st.ans=o.st.ans||{}; st.studied=o.st.studied||{}; arabic=!!o.arabic; setAr(); render(); }
+      else alert("That file could not be read. Choose the progress file this app saved.");
+    }catch(err){ alert("That file could not be read. Choose the progress file this app saved."); } };
+  r.readAsText(f); e.target.value="";
+};
+function setAr(){ $("#arBtn").textContent = arabic?"العربية ON":"العربية OFF"; $("#arBtn").classList.toggle("on",arabic); }
+$("#arBtn").onclick=()=>{ arabic=!arabic; setAr(); render(); };
+document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{ view=+t.dataset.view; results=null; render(); window.scrollTo({top:0,behavior:"smooth"}); });
+
+function render(){ renderHeader(); renderSide(); renderPanel(); }
+render();
+</script>
+</body>
+</html>
